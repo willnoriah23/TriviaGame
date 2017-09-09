@@ -12,3 +12,27 @@ h2 {
 	font-size: 20px;
 	color: #f4c0d7;
 }
+
+#start {
+	color: #f4c0d7;
+	background-color: #000000;
+	border-color: #fff;
+
+}
+
+#submit {
+	color: #f4c0d7;
+	background-color: #000000;
+	border-color: #fff;
+
+}
+
+.question {
+	color: #f4c0d7;
+	font-size: 18px;
+}
+
+#answer {
+	color: #f4c0d7;
+	font-size: 14px;
+}
