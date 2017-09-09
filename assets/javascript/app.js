@@ -1,3 +1,4 @@
+// Timer
 var number = 100;
  
 var timerId;
@@ -5,7 +6,7 @@ var timerId;
 function run() {
     timerId = setInterval(decrement, 1000);
 }
-
+// Makes timer count down
 function decrement() {
     number--;
 
@@ -24,6 +25,7 @@ function stop() {
 
 run();
 
+// My attempt at posting my questions to the HTML
 function createQuestionElement(index) {
 
     var qElement = $('<div>', {
@@ -39,11 +41,12 @@ function createQuestionElement(index) {
     return qElement;
 }
 
+//Questions
 var questions = [{
 
     question: "Beyoncé was named after what family member?",
     choices: ["Paternal grandmother", "Her mother’s maiden name", "A Creole seasoning", "A Texas city"]
-    // correctAnswer: "Her mother’s maiden name"
+    correctAnswer: "Her mother’s maiden name"
      },
      {
     question: "How many solo albums does Beyonce have?",
@@ -92,6 +95,7 @@ var questions = [{
     };
 ];
 
+// My attempt at posting my questions to the HTML with radio buttons
 function createRadios(index) {
     var radioList = $('<ul>');
     var item;
@@ -105,25 +109,26 @@ function createRadios(index) {
     }
     return radioList;
   }
+ 
+
+function choose() {
+    selections[questionCounter] = +$('input[name="answer"]:checked').val();
+  }
   
-// function choose() {
-//     selections[questionCounter] = +$('input[name="answer"]:checked').val();
-//   }
-  
-// function displayScore() {
-//     var score = $('<p>',{id: 'question'});
+function displayScore() {
+    var score = $('<p>',{id: 'question'});
     
-//     var numCorrect = 0;
-//     for (var i = 0; i < selections.length; i++) {
-//       if (selections[i] === questions[i].correctAnswer) {
-//         numCorrect++;
-//       }
-//     }
+    var numCorrect = 0;
+    for (var i = 0; i < selections.length; i++) {
+      if (selections[i] === questions[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
     
-//     score.append('You got ' + numCorrect + ' questions out of ' +
-//                  questions.length + ' right!!!');
-//     return score;
-//   }
+    score.append('You got ' + numCorrect + ' questions out of ' +
+                 questions.length + ' right!');
+    return score;
+  }
 
 
         
