@@ -2,7 +2,6 @@ $('#start').on('click', function(){
 
     startTimer();
     createQuestionElement();
-   
 
 });
 
@@ -27,7 +26,7 @@ function createRadios(index) {
     for (var i = 0; i < questions[index].choices.length; i++) {
        
       // item = $('<li>');
-      input += '<input type="radio" name="choices" value=' + questions[index].choices[i] + ' />';
+        input += '<input type="radio" name="choices'+questions[index].choices+'" value=' + questions[index].choices[i] + ' />';
 
       input += questions[index].choices[i] + "<br>";
       //item.append(input);
@@ -36,9 +35,9 @@ function createRadios(index) {
     return input;
   }
 
-  function choose() {
-    selections[questionCounter] = +$('input[name="answer"]:checked').val();
-  }
+  // function choose() {
+  //   selections[questionCounter] = +$('input[name="answer"]:checked').val();
+  // }
 
 var number = 60;
  
@@ -49,7 +48,7 @@ function startTimer() {
         //console.log("Line 40: ", number );
         if (number == 0) {
             stop();
-            alert("Time Up!");
+            // alert("Time Up!");
         }
         number--;
         $("#timer").html("<h2>" + number + "</h2>");
@@ -61,6 +60,23 @@ function stop() {
     clearInterval(timerId);
 }
 
+$("#submit").on('click', function() {
+    getCheckedValue();
+
+});
+
+function getCheckedValue( radioName ){
+    var radios = document.getElementsByName( choices );
+    for(var y=0; y<radios.length; y++)
+      if(radios[y].checked) return radios[y].value; 
+}
+
+function getScore(){
+  var score = 0;
+  for (var i=0; i<tot; i++)
+    if(getCheckedValue("question"+i)=== correctAnswer[i]) score += 1; 
+  return score;
+}
 
     var questions = [
     {
@@ -116,17 +132,23 @@ function stop() {
     }
 ];
 
-function displayScore() {
-    var score = $('<p>',{id: 'question'});
+
+
+// function returnScore(){
+//   alert("Your score is "+ getScore() +"/"+ tot);
+// }
+
+// function displayScore() {
+//     var score = $('<p>',{id: 'question'});
     
-    var numCorrect = 0;
-    for (var i = 0; i < selections.length; i++) {
-      if (selections[i] === questions[i].correctAnswer) {
-        numCorrect++;
-      }
-    }
+//     var numCorrect = 0;
+//     for (var i = 0; i < selections.length; i++) {
+//       if (selections[i] === questions[i].correctAnswer) {
+//         numCorrect++;
+//       }
+//     }
     
-    score.append('You got ' + numCorrect + ' questions out of ' +
-                 questions.length + ' right!');
-    return score;
-  }
+//     score.append('You got ' + numCorrect + ' questions out of ' +
+//                  questions.length + ' right!');
+//     return score;
+//   }
