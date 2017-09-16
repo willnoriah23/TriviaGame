@@ -9,15 +9,18 @@ h1 {
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 30px;
 	color: #f4c0d7;
+}
+
+#timer {
+	font-size: 40px;
 }
 
 #start {
 	color: #f4c0d7;
 	background-color: #000000;
 	border-color: #fff;
-
 }
 
 #submit {
