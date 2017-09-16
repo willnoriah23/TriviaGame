@@ -19,9 +19,6 @@ function createQuestionElement() {
 }
 
 function createRadios(index) {
-    // var radioList = $('<ul>');
-    //var item;
-    // console.log(index)
     var input = '';
     for (var i = 0; i < questions[index].choices.length; i++) {
        
@@ -34,10 +31,6 @@ function createRadios(index) {
     }
     return input;
   }
-
-  // function choose() {
-  //   selections[questionCounter] = +$('input[name="answer"]:checked').val();
-  // }
 
 var number = 60;
  
@@ -65,9 +58,9 @@ $("#submit").on('click', function() {
 
 });
 
-function getCheckedValue( radioName ){
-    var radios = document.getElementsByName( choices );
-    for(var y=0; y<radios.length; y++)
+function getCheckedValue(choices) {
+    var radios = document.getElementsByName(choices);
+    for (var y = 0; y < choices.length; y++)
       if(radios[y].checked) return radios[y].value; 
 }
 
@@ -77,6 +70,8 @@ function getScore(){
     if(getCheckedValue("question"+i)=== correctAnswer[i]) score += 1; 
   return score;
 }
+
+// I want to use <a href> and target a new page, to display the correct and incorrect answers
 
     var questions = [
     {
